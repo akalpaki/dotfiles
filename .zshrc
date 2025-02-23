@@ -9,12 +9,10 @@ alias ga="git add"
 alias gc="git commit"
 alias gp="git push"
 alias src="source ~/.zshrc"
-alias note="fuzpad"
+alias note="./dev/scripts/note.sh"
 
 # project aliases, just jump in quickly
 alias blink="cd ~/dev/blink/"
-
-export TERM=screen-256color-bce
 
 # PATH
 export PATH=$PATH:/Users/akalpaki/.volta/bin
@@ -50,6 +48,3 @@ export TYPEWRITTEN_PROMPT_LAYOUT="pure_verbose"
 export TYPEWRITTEN_CURSOR="block"
 export TYPEWRITTEN_RELATIVE_PATH="adaptive"
 export TYPEWRITTEN_COLOR_MAPPINGS="primary:red;secondary:red;accent:black;foreground:black"
-
-# load .bashrc (for fuzpad)
-source ~/.bashrc
