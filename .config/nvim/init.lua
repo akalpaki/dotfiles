@@ -21,6 +21,8 @@ vim.keymap.set('n', '<leader>pv', '<cmd>Ex<CR>')
 vim.keymap.set('n', '<C-u>', 'zz<C-u>')
 vim.keymap.set('n', '<C-d>', 'zz<C-d>')
 
+vim.keymap.set('n', '<leader>e', ":lua vim.diagnostic.open_float(0, { scope = 'line' })<CR>")
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -554,7 +556,6 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        biome = {},
         ts_ls = {
           root_dir = require('lspconfig').util.root_pattern 'package.json',
           single_file = false,
@@ -656,11 +657,8 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
       },
     },
   },
@@ -926,6 +924,31 @@ require('lazy').setup({
       end)
     end,
   },
+  -- {
+  --   'mfussenegger/nvim-lint',
+  --   event = { 'BufReadPre', 'BufNewFile' },
+  --   config = function()
+  --     local lint = require 'lint'
+  --
+  --     lint.linters_by_ft = {
+  --       javascript = { 'eslint_' },
+  --       typescript = { 'eslint_d' },
+  --     }
+  --
+  --     local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+  --
+  --     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+  --       group = lint_augroup,
+  --       callback = function()
+  --         lint.try_lint()
+  --       end,
+  --     })
+  --
+  --     vim.keymap.set('n', '<leader>l', function()
+  --       lint.try_lint()
+  --     end, { desc = 'Manually trigger linting for file' })
+  --   end,
+  -- },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

@@ -14,6 +14,8 @@ alias note="fuzpad"
 # project aliases, just jump in quickly
 alias blink="cd ~/dev/blink/"
 
+export TERM=screen-256color-bce
+
 # PATH
 export PATH=$PATH:/Users/akalpaki/.volta/bin
 
