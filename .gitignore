@@ -6,6 +6,8 @@
 !.config/*
 !.config/alacritty/
 !.config/alacritty/*
+!.config/starship/
+!.config/starship/*
 !.zprofile
 !.zshrc
 !.tmux.conf

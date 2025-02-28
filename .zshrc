@@ -17,6 +17,10 @@ alias blink="cd ~/dev/blink/"
 # PATH
 export PATH=$PATH:/Users/akalpaki/.volta/bin
 
+#starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+
 # fzf
 source <(fzf --zsh)
 # Options to fzf command
