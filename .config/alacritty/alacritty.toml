@@ -16,4 +16,4 @@ hide_when_typing = true
 
 [font]
 normal = { family = "Iosevka Nerd Font", style = "Regular" }
-size = 20
+size = 18
