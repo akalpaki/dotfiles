@@ -1,0 +1,16 @@
+[window]
+startup_mode = "Maximized"
+decorations = "Buttonless"
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+
+[mouse]
+hide_when_typing = true
+
+[font]
+normal = { family = "Iosevka Nerd Font", style = "Regular" }
+size = 20

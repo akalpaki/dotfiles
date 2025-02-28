@@ -39,12 +39,3 @@ _fzf_comprun() {
     *)            fzf --preview 'bat -n --color=always {}' "$@" ;;
   esac
 }
-
-#typewritten
-autoload -U promptinit; promptinit
-prompt typewritten
-
-export TYPEWRITTEN_PROMPT_LAYOUT="pure_verbose"
-export TYPEWRITTEN_CURSOR="block"
-export TYPEWRITTEN_RELATIVE_PATH="adaptive"
-export TYPEWRITTEN_COLOR_MAPPINGS="primary:red;secondary:red;accent:black;foreground:black"
