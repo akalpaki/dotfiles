@@ -1,0 +1,11 @@
+# Ignore everything
+*
+#Except these:
+!.gitignore
+!.config/
+!.config/*
+!.config/alacritty/
+!.config/alacritty/*
+!.zprofile
+!.zshrc
+!.tmux.conf
