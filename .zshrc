@@ -9,7 +9,7 @@ alias ga="git add"
 alias gc="git commit"
 alias gp="git push"
 alias src="source ~/.zshrc"
-alias note="./dev/scripts/note.sh"
+alias note="~/dev/scripts/note.sh"
 
 # project aliases, just jump in quickly
 alias blink="cd ~/dev/blink/"
