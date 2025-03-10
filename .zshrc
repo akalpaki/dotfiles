@@ -1,6 +1,6 @@
 # aliases
 alias la="ls -la"
-alias vim="nvim"
+alias vim="nvim ."
 alias cfg="vim ~/.config/nvim"
 alias shcfg="vim ~/.zshrc"
 alias t="tree -ph"
@@ -10,9 +10,6 @@ alias gc="git commit"
 alias gp="git push"
 alias src="source ~/.zshrc"
 alias note="~/dev/scripts/note.sh"
-
-# project aliases, just jump in quickly
-alias blink="cd ~/dev/blink/"
 
 # PATH
 export PATH=$PATH:/Users/akalpaki/.volta/bin
