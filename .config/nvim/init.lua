@@ -31,6 +31,15 @@ vim.keymap.set('n', '<M-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<M-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<M-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<M-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('n', 'tcc', function()
+  if vim.o.background == 'light' then
+    vim.o.background = 'dark'
+  else
+    vim.o.background = 'light'
+  end
+end, { desc = 'toggle light/dark mode' })
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -924,6 +933,111 @@ require('lazy').setup({
       end)
       vim.keymap.set('n', '<C-l>', function()
         harpoon:list():select(4)
+      end)
+    end,
+  },
+  {
+    'mfussenegger/nvim-dap',
+  },
+  {
+    'nvim-neotest/nvim-nio',
+  },
+  {
+    'rcarriga/nvim-dap-ui',
+  },
+  {
+    'leoluz/nvim-dap-go',
+    config = function()
+      local dap, dapui = require 'dap', require 'dapui'
+      local dapgo = require 'dap-go'
+
+      dapui.setup()
+      dapgo.setup()
+
+      dap.adapters.delve = function(callback, config)
+        if config.mode == 'remote' and config.request == 'attach' then
+          callback {
+            type = 'server',
+            host = config.host or '127.0.0.1',
+            port = config.port or '38697',
+          }
+        else
+          callback {
+            type = 'server',
+            port = '${port}',
+            executable = {
+              command = 'dlv',
+              args = { 'dap', '-l', '127.0.0.1:${port}', '--log', '--log-output=dap' },
+              detached = vim.fn.has 'win32' == 0,
+            },
+          }
+        end
+      end
+
+      -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
+      dap.configurations.go = {
+        {
+          type = 'delve',
+          name = 'Debug',
+          request = 'launch',
+          program = '${file}',
+        },
+        {
+          type = 'delve',
+          name = 'Debug test', -- configuration for debugging test files
+          request = 'launch',
+          mode = 'test',
+          program = '${file}',
+        },
+        -- works with go.mod packages and sub packages
+        {
+          type = 'delve',
+          name = 'Debug test (go.mod)',
+          request = 'launch',
+          mode = 'test',
+          program = './${relativeFileDirname}',
+        },
+      }
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+
+      vim.keymap.set('n', '<F5>', function()
+        require('dap').continue()
+      end)
+      vim.keymap.set('n', '<F10>', function()
+        require('dap').step_over()
+      end)
+      vim.keymap.set('n', '<F11>', function()
+        require('dap').step_into()
+      end)
+      vim.keymap.set('n', '<F12>', function()
+        require('dap').step_out()
+      end)
+      vim.keymap.set('n', '<Leader>q', function()
+        require('dap').toggle_breakpoint()
+      end)
+      vim.keymap.set('n', '<Leader>Q', function()
+        require('dap').set_breakpoint()
+      end)
+      vim.keymap.set('n', '<Leader>lp', function()
+        require('dap').set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
+      end)
+      vim.keymap.set('n', '<Leader>dr', function()
+        require('dap').repl.open()
+      end)
+      vim.keymap.set('n', '<Leader>dl', function()
+        require('dap').run_last()
+      end)
+
+      vim.keymap.set('n', '<Leader>w', function()
+        dapui.open()
+      end)
+      vim.keymap.set('n', '<Leader>W', function()
+        dapui.close()
       end)
     end,
   },

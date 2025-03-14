@@ -1,8 +1,8 @@
 # aliases
 alias la="ls -la"
 alias vim="nvim ."
-alias cfg="vim ~/.config/nvim"
-alias shcfg="vim ~/.zshrc"
+alias cfg="nvim ~/.config/nvim"
+alias shcfg="nvim ~/.zshrc"
 alias t="tree -ph"
 alias dcmp="docker-compose"
 alias ga="git add"
