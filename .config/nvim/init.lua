@@ -27,6 +27,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
+vim.o.termguicolors = true
 
 -- [[ KEYMAPS ]]
 vim.keymap.set('n', '<leader>pv', '<cmd>Ex<CR>')
