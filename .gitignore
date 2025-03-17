@@ -6,6 +6,8 @@
 !.config/*
 !.config/alacritty/
 !.config/alacritty/*
+!.config/ghostty/
+!.config/ghostty/*
 !.config/starship/
 !.config/starship/*
 !.zprofile

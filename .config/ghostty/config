@@ -1,0 +1,9 @@
+# window
+window-height=510
+window-width=1640
+title = " "
+
+# font
+font-family = "Iosevka Nerd Font Mono"
+font-feature = -calt, -liga, -dlig
+font-size = 18
