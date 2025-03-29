@@ -7,3 +7,6 @@ title = " "
 font-family = "Iosevka Nerd Font Mono"
 font-feature = -calt, -liga, -dlig
 font-size = 18
+
+# hide icon at the top
+macos-titlebar-proxy-icon = "hidden"
