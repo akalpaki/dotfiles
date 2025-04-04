@@ -7,7 +7,7 @@ mouse-hide-while-typing = true
 # font
 font-family = "SF Mono"
 font-feature = -calt, -liga, -dlig
-font-size = "20"
+font-size = "24"
 
 # hide icon at the top
 macos-titlebar-proxy-icon = "hidden"
@@ -15,3 +15,6 @@ macos-titlebar-proxy-icon = "hidden"
 # cursor
 cursor-style = "block"
 cursor-style-blink = ""
+
+# background
+background = "#000000"
