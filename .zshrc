@@ -1,6 +1,6 @@
 # aliases
 alias la="ls -la"
-alias vim="nvim ."
+alias vim="nvim"
 alias cfg="nvim ~/.config/nvim"
 alias shcfg="nvim ~/.zshrc"
 alias tmuxcfg="nvim ~/.tmux.conf"
