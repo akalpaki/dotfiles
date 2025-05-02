@@ -42,3 +42,8 @@ _fzf_comprun() {
     *)            fzf --preview 'bat -n --color=always {}' "$@" ;;
   esac
 }
+
+#fuzpad
+export FUZPAD_DIR="$HOME/.notes"
+export FUZPAD_TEXT_FORMAT="md"
+export EDITOR="nvim"
