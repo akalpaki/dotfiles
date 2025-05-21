@@ -12,8 +12,10 @@ alias gc="git commit"
 alias gp="git push"
 alias src="source ~/.zshrc"
 alias note="~/dev/scripts/note.sh"
+alias python="python3"
 
 # PATH
+export PATH=$PATH:$PATH:$HOME/go/bin
 export PATH=$PATH:/Users/akalpaki/.volta/bin
 
 #starship
